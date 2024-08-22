@@ -1,0 +1,232 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+/* phần left main Success */
+.container .success {
+    display: flex;
+    padding: 15px 15px;
+}
+.container .success img{
+    width: 50px;
+    height: auto;
+}
+.success h2 {
+    margin-left: 20px;
+    margin-top: 10px;
+    color: 	#ADFF2F;
+
+}
+.success-message {
+    display: flex;
+}
+.success-message .message{
+    color: #FF0000;
+}
+.success-message img {
+    width: 70px;
+    height: 60px;
+}
+.info{
+    text-align: center;
+}
+.info-1 {
+    color: #8e0707;
+}
+/*Kết thúc phần success*/
+
+.container img {
+    max-width: 100%;
+    height: auto;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.bankwrap {
+    font-size: 30px;
+    color: tomato;
+    text-align: center;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.summary {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+}
+.summary div {
+    margin-bottom: 10px;
+}
+.summary div:last-child {
+    font-weight: bold;
+    color: #d9534f;
+}
+.actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.actions button.primary {
+    background-color: #0275d8;
+    color: #fff;
+}
+.actions button.secondary {
+    background-color: #ccc;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    background: #ddd;
+}
+
+.logo {
+    width: 160px;
+    height: 80px;
+}
+.dlabel{
+    margin-left: auto;
+    height: 10px;
+}
+
+.dlabel a img{
+    width: 26px;
+    border-radius: 50%;
+}
+
+
+.contact-info {
+    margin-left: auto;
+    text-align: center;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.main {
+    display: flex;
+}
+
+.payment-methods {
+    width: 60%;
+    padding: 20px;
+    padding-left: 0;
+}
+
+.order-info{
+    width: 40%;
+    
+}
+
+.payment-methods .method {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8;
+    margin-bottom: 10px;
+    padding: 13px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.method .dropdown-toggle {
+
+    border-bottom: 0;
+    position: absolute;
+    right: 680px;
+  
+}
+
+.payment-methods .method:hover {
+    background-color: #e2e2e2;
+}
+
+.payment-methods .icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.order-info {
+    border-left: 1px solid #ddd;
+}
+
+.order-details {
+    background :#ddd; 
+    margin-left: 10px;
+    height: 80px;
+    margin: 10px 0px 0
+}
+.order-details h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+   
+}
+
+.order-details .icon-nldb{
+    position: absolute;
+    display: inline-block;
+   
+}
+.order-details .nldb-boxCont {
+    text-align: center;
+}
+.order-details p {
+    margin: 5px 0 20px;
+    color: #666;
+}
+
+.order-summary p {
+    margin: 10px 10px;
+}
+
+.order-summary strong {
+    color: #333;
+}
+
+.cancel-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cancel-btn:hover {
+    background-color: #ff1a1a;
+}

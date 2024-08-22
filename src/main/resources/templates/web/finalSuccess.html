@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Final Success Page</title>
+  <script th:inline="javascript">
+    function redirectToOrderIndex() {
+      const orderCode = /*[[${orderCode}]]*/ 'defaultOrderCode';
+      window.location.href = `/web/index/${orderCode}`;
+    }
+
+    setTimeout(redirectToOrderIndex, 5000);
+  </script>
+</head>
+<body>
+<h1>Payment Successful</h1>
+<p>Thank you for your payment.</p>
+<a  href="/web/index">
+  Test lại
+</a>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order Details</title>
+</head>
+<body>
+<h1>Order Details</h1>
+<h2>Order Information</h2>
+<table border="1">
+    <tr>
+        <th>Order Code</th>
+        <td th:text="${orders.orderCode}"></td>
+    </tr>
+    <tr>
+        <th>Merchant ID</th>
+        <td th:text="${orders.merchantId}"></td>
+    </tr>
+    <tr>
+        <th>Total Amount</th>
+        <td th:text="${orders._Total_amount}"></td>
+    </tr>
+</table>
+<h2>Merchant Fee Information</h2>
+<table border="1">
+    <tr>
+        <th>Payment Method Code</th>
+        <td th:text="${merchantFee.payment_method_code}"></td>
+    </tr>
+    <tr>
+        <th>Bank ID</th>
+        <td th:text="${merchantFee.payment_method_bank_id}"></td>
+    </tr>
+    <tr>
+        <th>Bank Code</th>
+        <td th:text="${merchantFee.payment_method_bank_code}"></td>
+    </tr>
+    <tr>
+        <th>Sender Fee Percentage</th>
+        <td th:text="${merchantFee.sender_fee_percentage}"></td>
+    </tr>
+    <tr>
+        <th>Sender Fee Fix</th>
+        <td th:text="${merchantFee.sender_fee_fix}"></td>
+    </tr>
+</table>
+<a href="/">Go back to home</a>
+</body>
+</html>

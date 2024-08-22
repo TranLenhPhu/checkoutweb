@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/assets/css/styles.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <!-- Phần header -->
+    <div class="header">
+        <h1 class="logo">
+            <a href="">
+                <img src="https://upload.nganluong.vn/public/css/newlanding/img/nganluong-logo-color" alt="NgânLượng.vn" class="logo">
+            </a>
+        </h1>
+        <div class="dlabel">
+            <a href="">
+                <img src="https://upload.nganluong.vn/public/css/checkout/version20/images/vietnam-flag.png" alt="">
+                <span class="dropdown-toggle right"></span>
+            </a>
+        </div>
+    </div>
+    <!-- Kết thúc phần header-->
+
+    <!-- Phần main-->
+    <div class="main">
+        <div class="col-span-4 payment-methods">
+            <div class="container">
+                <!-- <img src="logo.png" alt="NgânLượng.vn"> -->
+                <div>
+                    <h2>Online bằng thẻ thanh toán quốc tế</h2>
+                </div>
+                <div class="bankwrap">
+<!--                    <strong th:text="${merchantFee.payment_method_bank_id}"></strong>-->
+                    <strong th:text="${merchantFee.payment_method_code}"></strong>
+                    <strong th:text="${merchantFee.payment_method_bank_code}"></strong>
+                </div>
+
+                <form th:action="@{/web/payment/{orderCode}(orderCode=${orderCode})}" th:object="${cardDetails}" method="post">
+
+                    <div class="form-group">
+                        <label for="cardHolderName">Tên chủ thẻ:</label>
+                        <input type="text" id="cardHolderName" th:field="*{cardHolderName}" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardNumber">Số thẻ:</label>
+                        <input type="text" id="cardNumber" th:field="*{cardNumber}" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiryMonth">Tháng hết hạn:</label>
+                        <input type="text" id="expiryMonth" th:field="*{expiryMonth}" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiryYear">Năm hết hạn:</label>
+                        <input type="text" id="expiryYear" th:field="*{expiryYear}" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">Mã CVV/CVC2:</label>
+                        <input type="text" id="cvv" th:field="*{cvv}" required/>
+                    </div>
+
+                    <div th:if="${errorMessage}" style="color:red;">
+                        <p th:text="${errorMessage}"></p>
+                    </div>
+                    <div class="summary"  >
+<!--                        <div>Người bán đảm bảo: <strong>Trần Lệnh Phú</strong></div>-->
+                        <div>Giá trị đơn hàng:
+                            <strong th:text="${orders.orderAmount}"></strong>
+                        </div>
+                        <div> Phí thanh toán:
+                            <strong th:text="${merchantFee.sender_fee_percentage}"></strong>% +
+                            <strong th:text="${merchantFee.sender_fee_fix}"></strong>
+
+                        </div>
+                        <div>Tổng Tiền :
+<!--                            <strong th:text="${merchantFee.sender_fee_fix + (orders._Total_amount * (merchantFee.sender_fee_percentage / 100))}"></strong>-->
+                            <strong th:text="(${orders.orderAmount} + (${merchantFee.sender_fee_fix} +${orders.orderAmount} * (${merchantFee.sender_fee_percentage})/100)) "></strong>
+
+                        </div>
+
+<!--                        <div>Phí thanh toán: <strong>200 đ + 2%</strong></div>-->
+<!--                        <div>Tổng tiền: <strong>20.600 đ</strong></div>-->
+                    </div>
+                    <div class="actions">
+                        <button type="button" class="secondary">Chọn lại</button>
+                        <button type="submit" >Tiếp tục</button>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+        <div class="col-span-8 order-info">
+            <div class="contact-info">
+                <div class="merchantlogo">
+                    <img src="https://upload.nganluong.vn/public/images/merchant_logo_default_new.png" alt="">
+                </div>
+                <p>Trần Lệnh Phú</p>
+                <p>📞 0945767061</p>
+                <p>📧 lenhphu734@gmail.com</p>
+            </div>
+            <div class="order-details">
+                <div class="icon-nldb">
+                    <img src="https://upload.nganluong.vn/public/css/checkout/version20/images/silver_60.png" alt="">
+                </div>
+
+                <div class="nldb-boxCont">
+                    <div class="nldbtxt">Người Bán Đảm Bảo</div>
+                    <p>Người mua được Ngân Lượng bảo hiểm 100% giá trị giao dịch</p>
+                </div>
+
+            </div>
+            <div class="order-summary">
+                <p>Giá trị đơn hàng: <strong th:text="${orders.orderAmount}"></strong></p>
+                <p>Mã đơn hàng: <strong th:text="${orders.orderCode}"></strong></p>
+                <p>Nội dung: <strong>motadonhang</strong></p>
+                <p>Mã Merchant <strong th:text="${orders.merchantId}"></strong></p>
+                <p>Quý khách vui lòng thực hiện thanh toán trước <strong>11/07/2024 14:04:39</strong></p>
+            </div>
+            <button class="cancel-btn">Hủy thanh toán</button>
+        </div>
+    </div>
+    <!--Kết thúc phần main-->
+
+    <!--Phần footer-->
+    <div class="footer">
+    </div>
+    <!--Kết thúc phần footer-->
+
+</div>
+
+</body>
+</html>
